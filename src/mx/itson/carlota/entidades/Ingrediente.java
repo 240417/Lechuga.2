@@ -10,20 +10,21 @@ package mx.itson.carlota.entidades;
  * @author Jesus
  */
 public class Ingrediente {
-    private String nombre;
+    private String contenido;
 
     /**
-     * @return the nombre
+     * @return the contenido
      */
-    public String getNombre() {
-        return nombre;
+    public String getContenido() {
+        return contenido;
     }
 
     /**
-     * @param nombre the nombre to set
+     * @param contenido the contenido to set
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
-    
+
+   
 }

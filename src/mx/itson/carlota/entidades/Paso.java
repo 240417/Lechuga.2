@@ -10,34 +10,21 @@ package mx.itson.carlota.entidades;
  * @author Jesus
  */
 public class Paso {
-    private int orden;
-    private String descripcion;
+
+    private String contenido;
+
     /**
-     * @return the orden
+     * @return the contenido
      */
-    public int getOrden() {
-        return orden;
+    public String getContenido() {
+        return contenido;
     }
 
     /**
-     * @param orden the orden to set
+     * @param contenido the contenido to set
      */
-    public void setOrden(int orden) {
-        this.orden = orden;
-    }
-
-    /**
-     * @return the descripcion
-     */
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    /**
-     * @param descripcion the descripcion to set
-     */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
     
 }

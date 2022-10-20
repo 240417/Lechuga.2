@@ -5,6 +5,7 @@
  */
 package mx.itson.carlota.entidades;
 
+import com.google.gson.Gson;
 import java.util.List;
 import mx.itson.carlota.enumerador.Dificultad;
 
@@ -22,20 +23,17 @@ public class Receta {
     private List<Paso> pasos;
     private Dificultad dificultad;
     
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
+    public Receta deserializar (String json){
+        Receta receta = new Receta();
+        try{
+            receta= new Gson().fromJson(json, receta.getClass());
+            
+        }catch(Exception e){
+            System.err.print("Ocurrio un error: "+e.getMessage());
+        }
+        return receta;
     }
-
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
+    
     /**
      * @return the descripcion
      */
@@ -132,6 +130,20 @@ public class Receta {
      */
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the titulo to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }
