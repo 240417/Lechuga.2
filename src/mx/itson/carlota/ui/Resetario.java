@@ -133,21 +133,28 @@ public class Resetario extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try{
+            //Abriremos un cuadro de dialogo donde seleccionaremos el fichero ubicado en nustro dispositivo
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
 
+            //Si se abre el fichero correcto
             if(fileChooser.showOpenDialog(this)==JFileChooser.APPROVE_OPTION);
             File archivo = fileChooser.getSelectedFile();
             
+            //leemos el fichero y guardamos el contenido en un allray
             byte archivoBytes [] = Files.readAllBytes(archivo.toPath());
-            //??
+            
+            //Guardamos el contenido del JSON en una variable para poder deserializarlo despues
             String contenido = new String(archivoBytes, StandardCharsets.UTF_8);
-            //??
+            
+            //Importamos la receta deserealizada
             Receta receta = new Receta().deserializar(contenido);
             
+            //Declaremos que el contenido del la tabla ingredientes sera manejado por modelo
             DefaultTableModel modelo = (DefaultTableModel) tblIngredientes.getModel();
             modelo.setRowCount(0);
             
+            ////Declaremos que el contenido del la tabla pasos sera manejado por modelo2
              DefaultTableModel modelo2 = (DefaultTableModel) tblPasos.getModel();
             modelo2.setRowCount(0);
             

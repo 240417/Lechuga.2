@@ -23,6 +23,11 @@ public class Receta {
     private List<Paso> pasos;
     private Dificultad dificultad;
     
+    /**
+     * Al seleccionar el fichero en la otra pagina
+     * @return the receta
+     * 
+     */
     public Receta deserializar (String json){
         Receta receta = new Receta();
         try{
