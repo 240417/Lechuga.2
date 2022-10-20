@@ -5,13 +5,21 @@
  */
 package mx.itson.carlota.enumerador;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  *
  * @author Jesus
  */
 
 public enum Dificultad {
-    FACIL, INTERMADIO, DESAFIENTE
+    //Serealizamos las dificultades para pasarlo al archivo JSON e imprimirlo
+    @SerializedName("1")
+    FACIL,
+    @SerializedName("2")
+    INTERMADIO,
+    @SerializedName("3")
+    DESAFIENTE
 }
 
 

@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import mx.itson.carlota.entidades.Ingrediente;
 import mx.itson.carlota.entidades.Paso;
 import mx.itson.carlota.entidades.Receta;
+import mx.itson.carlota.enumerador.Dificultad;
 
 /**
  *
@@ -45,6 +46,7 @@ public class Resetario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPasos = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        lblDificultad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +92,8 @@ public class Resetario extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblPasos);
 
+        lblDificultad.setText("Dificultad");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,16 +101,24 @@ public class Resetario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnBuscar)
-                    .addComponent(lblTitulo)
-                    .addComponent(lblDescripcion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(btnBuscar)
+                            .addComponent(lblTitulo)
+                            .addComponent(lblDescripcion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(392, 392, 392))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,15 +129,20 @@ public class Resetario extends javax.swing.JFrame {
                 .addComponent(btnBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDescripcion)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(lblDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -160,7 +177,14 @@ public class Resetario extends javax.swing.JFrame {
             
             //Se imprime el contenido
             lblTitulo.setText(receta.getNombre());
-            lblDescripcion.setText(receta.getDescripcion()+receta.getDificultad()+receta.getNumeroPorciones()+receta.getTiempo()+receta.getUsuario());
+            lblDescripcion.setText("Autor: "+receta.getUsuario().getNombre()+"    Descripción: "+receta.getDescripcion()+"     Porciones: "+receta.getNumeroPorciones()+"     Tiempo: "+receta.getTiempo());
+            if(receta.getDificultad()==Dificultad.FACIL){
+                lblDificultad.setText("Dificultad: Facil");
+            }else if(receta.getDificultad()==Dificultad.INTERMADIO){
+                lblDificultad.setText("Dificultad: Intermedio");
+            }else if(receta.getDificultad()==Dificultad.DESAFIENTE){
+                lblDificultad.setText("Dificultad: Desafiante");
+            }
             for(Ingrediente i : receta.getIngredientes()){
                 modelo.addRow(new Object[]{i.getContenido()});
             }
@@ -216,6 +240,7 @@ public class Resetario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblDificultad;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblIngredientes;
     private javax.swing.JTable tblPasos;

@@ -11,7 +11,7 @@ package mx.itson.carlota.entidades;
  */
 public class Usuario {
      private String nombre;
-    private String correoElrctronico;
+    private String apodo;
     private String contraseña;
 
     /**
@@ -29,17 +29,17 @@ public class Usuario {
     }
 
     /**
-     * @return the correoElrctronico
+     * @return the apodo
      */
-    public String getCorreoElrctronico() {
-        return correoElrctronico;
+    public String getApodo() {
+        return apodo;
     }
 
     /**
-     * @param correoElrctronico the correoElrctronico to set
+     * @param apodo the correoElrctronico to set
      */
-    public void setCorreoElrctronico(String correoElrctronico) {
-        this.correoElrctronico = correoElrctronico;
+    public void setApodo(String apodo) {
+        this.apodo = apodo;
     }
 
     /**

@@ -81,7 +81,7 @@ public class Main {
         
         Usuario usuario = new Usuario();
         usuario.setNombre(":)");
-        usuario.setCorreoElrctronico("alejandra.");
+        usuario.setApodo("alejandra.");
         usuario.setContraseña("");
         
         receta.setUsuario(usuario);
