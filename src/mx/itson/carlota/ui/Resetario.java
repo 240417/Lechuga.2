@@ -160,7 +160,7 @@ public class Resetario extends javax.swing.JFrame {
             
             //Se imprime el contenido
             lblTitulo.setText(receta.getNombre());
-            lblDescripcion.setText(receta.getDescripcion());
+            lblDescripcion.setText(receta.getDescripcion()+receta.getDificultad()+receta.getNumeroPorciones()+receta.getTiempo()+receta.getUsuario());
             for(Ingrediente i : receta.getIngredientes()){
                 modelo.addRow(new Object[]{i.getContenido()});
             }
