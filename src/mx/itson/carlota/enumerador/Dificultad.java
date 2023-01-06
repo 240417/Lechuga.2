@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  *
- * @author Jesus
+ * @author Alejandra Medina
  */
 
 public enum Dificultad {
